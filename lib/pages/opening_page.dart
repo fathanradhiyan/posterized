@@ -55,11 +55,11 @@ class _OpeningPageState extends State<OpeningPage> {
             decoration: InputDecoration(
               counterText: "",
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: ColorsConsts.sky, width: 2.5),
+                borderSide: BorderSide(color: ColorsConsts.sky, width: 2),
                 borderRadius: BorderRadius.circular(15),
               ),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: ColorsConsts.sky, width: 2),
+                borderSide: BorderSide(color: ColorsConsts.sky, width: 1),
                 borderRadius: BorderRadius.circular(15),
               ),
               border: OutlineInputBorder(
