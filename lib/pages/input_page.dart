@@ -31,6 +31,7 @@ class _InputPageState extends State<InputPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorsConsts.sky2,
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
         leading: const Padding(
@@ -40,7 +41,7 @@ class _InputPageState extends State<InputPage> {
             child: ColorFiltered(
                 colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcATop),
                 child: Image(
-                  image: AssetImage('assets/images/logo.png'),
+                  image: AssetImage('assets/images/poster_logo.png'),
                 )),
           ),
         ),

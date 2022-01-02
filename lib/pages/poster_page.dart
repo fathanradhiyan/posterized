@@ -69,6 +69,7 @@ class _PosterPageState extends State<PosterPage> {
   Future<ImageSource> showImageSource(BuildContext context) async {
     if (Platform.isAndroid) {
       return showModalBottomSheet(
+          backgroundColor: ColorsConsts.sky2,
           context: context,
           builder: (context) => Column(
                 mainAxisSize: MainAxisSize.min,
@@ -144,14 +145,17 @@ class _PosterPageState extends State<PosterPage> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      // backgroundColor: ColorsConsts.snow,
+      backgroundColor: ColorsConsts.sky2,
       body: Screenshot(
         controller: screenshotController,
         child: getBody(),
       ),
-      bottomSheet: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: buttonRow(),
+      bottomSheet: Container(
+        color: ColorsConsts.sky2,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: buttonRow(),
+        ),
       ),
     ));
   }
@@ -174,14 +178,19 @@ class _PosterPageState extends State<PosterPage> {
                     SizedBox(
                         height: MediaQuery.of(context).size.height * 0.4,
                         child: ColorFiltered(
-                          colorFilter: ColorFilter.mode(Color(0xFF64B6B6), BlendMode.srcATop),
+                          colorFilter: ColorFilter.mode(
+                              Color(0xFF64B6B6), BlendMode.srcATop),
                           child: LottieBuilder.asset(
-                              'assets/json/take_picture.json',),
+                            'assets/json/take_picture.json',
+                          ),
                         )),
                     Text(
                       'Pick Image from \n Gallery or Camera',
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.cairo(color: ColorsConsts.sky, fontSize: 24, fontWeight: FontWeight.w600),
+                      style: GoogleFonts.cairo(
+                          color: ColorsConsts.sky,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600),
                     )
                   ],
                 ),
@@ -281,8 +290,7 @@ class _PosterPageState extends State<PosterPage> {
                     setState(() {
                       isLoading = false;
                     });
-                    successDialog(context, "Done",
-                            'Your Image is Saved')
+                    successDialog(context, "Done", 'Your Image is Saved')
                         .show();
                   },
             style: ButtonStyle(

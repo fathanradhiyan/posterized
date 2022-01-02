@@ -21,15 +21,18 @@ class _OpeningPageState extends State<OpeningPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: ColorsConsts.sky2,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(
               height: 250,
-                child: ColorFiltered(
-                    colorFilter:
-                    ColorFilter.mode(Color(0xFF64B6B6), BlendMode.srcATop),
-                    child:Image(image: AssetImage('assets/images/logo.png'),))),
+                child: Image(image: AssetImage('assets/images/poster_logo.png'),)
+                // ColorFiltered(
+                //     colorFilter:
+                //     ColorFilter.mode(Color(0xFF64B6B6), BlendMode.srcATop),
+                //     child:Image(image: AssetImage('assets/images/poster_logo.png'),))
+            ),
             SizedBox(height: 20,),
             inputNameBar()
           ],
@@ -96,7 +99,8 @@ class _OpeningPageState extends State<OpeningPage> {
   }
 
   Widget footerButton(){
-    return SizedBox(
+    return Container(
+      color: ColorsConsts.sky2,
       width: MediaQuery.of(context).size.width,
       child: ElevatedButton(
         onPressed: (nameController.text == '')? (){
