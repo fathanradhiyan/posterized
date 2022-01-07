@@ -1,4 +1,4 @@
-package com.example.the_legacy
+package com.example.posterized
 
 import io.flutter.embedding.android.FlutterActivity
 

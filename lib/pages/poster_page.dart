@@ -238,7 +238,17 @@ class _PosterPageState extends State<PosterPage> {
                 ? SizedBox()
                 : statsBadges(widget.threepoints.toString() ?? '0', '3PM'),
           ],
-        )
+        ),
+        Positioned(
+          bottom: -15,
+          right: 0,
+          child: Image(
+            height: 100,
+            color: Colors.white.withOpacity(0.3),
+            // colorBlendMode: BlendMode.softLight,
+            image: AssetImage('assets/images/poster_logo.png'),
+          ),
+        ),
       ],
     );
   }

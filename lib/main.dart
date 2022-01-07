@@ -13,10 +13,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MaterialColor colorCustom = MaterialColor(0xFFFF00DD, color);
     return MaterialApp(
       title: 'Posterized',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: colorCustom,
         cursorColor: ColorsConsts.sky
       ),
       home: OpeningPage(),
