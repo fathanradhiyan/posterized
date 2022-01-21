@@ -30,6 +30,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Posterized',
       theme: ThemeData(
         primarySwatch: colorCustom,
+        accentColor: ColorsConsts.sky,
         cursorColor: ColorsConsts.sky
       ),
       home: OpeningPage(),

@@ -32,7 +32,7 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsConsts.sky2,
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: const Padding(
           padding: EdgeInsets.only(left: 10),
@@ -51,7 +51,7 @@ class _InputPageState extends State<InputPage> {
           style: GoogleFonts.cairo(fontWeight: FontWeight.bold),
         ),
       ),
-      body: ListView(
+      body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 32),
