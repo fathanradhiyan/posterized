@@ -6,7 +6,7 @@ import 'package:posterized/pages/input_page.dart';
 import 'package:posterized/widget/awesome_error_dialog.dart';
 
 class OpeningPage extends StatefulWidget {
-  const OpeningPage({Key key}) : super(key: key);
+  const OpeningPage({Key? key}) : super(key: key);
 
   @override
   _OpeningPageState createState() => _OpeningPageState();

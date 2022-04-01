@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:posterized/const/color.dart';
-import 'package:posterized/pages/input_page.dart';
 import 'package:posterized/pages/opening_page.dart';
-import 'package:posterized/pages/poster_page.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -33,7 +31,7 @@ class _MyAppState extends State<MyApp> {
         accentColor: ColorsConsts.sky,
         cursorColor: ColorsConsts.sky
       ),
-      home: OpeningPage(),
+      home: const OpeningPage(),
       debugShowCheckedModeBanner: false,
     );
   }

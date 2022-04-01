@@ -16,17 +16,17 @@ import 'package:posterized/widget/awesome_success_dialog.dart';
 import 'package:screenshot/screenshot.dart';
 
 class PosterPage extends StatefulWidget {
-  final String player;
-  final int points;
-  final int rebound;
-  final int assist;
-  final int steal;
-  final int block;
-  final int freeThrow;
-  final int threepoints;
+  final String? player;
+  final int? points;
+  final int? rebound;
+  final int? assist;
+  final int? steal;
+  final int? block;
+  final int? freeThrow;
+  final int? threepoints;
 
   const PosterPage(
-      {Key key,
+      {Key? key,
       this.player,
       this.points,
       this.rebound,
@@ -42,8 +42,8 @@ class PosterPage extends StatefulWidget {
 }
 
 class _PosterPageState extends State<PosterPage> {
-  Uint8List _imageFile;
-  File image;
+  Uint8List? _imageFile;
+  File? image;
 
   @override
   void dispose() {
@@ -56,7 +56,7 @@ class _PosterPageState extends State<PosterPage> {
 
   Future pickImage(ImageSource source) async {
     try {
-      final image = await ImagePicker.pickImage(source: source);
+      final image = await ImagePicker().pickImage(source: source);
       if (image == null) return;
       //temporary
       final imageTemporary = File(image.path);
@@ -66,7 +66,7 @@ class _PosterPageState extends State<PosterPage> {
     }
   }
 
-  Future<ImageSource> showImageSource(BuildContext context) async {
+  Future<Future> showImageSource(BuildContext context) async {
     if (Platform.isAndroid) {
       return showModalBottomSheet(
           backgroundColor: ColorsConsts.sky2,
@@ -112,13 +112,13 @@ class _PosterPageState extends State<PosterPage> {
           builder: (context) => CupertinoActionSheet(
                 actions: [
                   CupertinoActionSheetAction(
-                      child: Text('Camera'),
+                      child: const Text('Camera'),
                       onPressed: () {
                         pickImage(ImageSource.camera);
                         Navigator.pop(context);
                       }),
                   CupertinoActionSheetAction(
-                      child: Text('Gallery'),
+                      child: const Text('Gallery'),
                       onPressed: () {
                         pickImage(ImageSource.gallery);
                         Navigator.pop(context);
@@ -169,7 +169,7 @@ class _PosterPageState extends State<PosterPage> {
           height: size.height,
           child: image != null
               ? Image.file(
-                  image,
+                  image!,
                   fit: BoxFit.cover,
                 )
               : Column(
@@ -178,7 +178,7 @@ class _PosterPageState extends State<PosterPage> {
                     SizedBox(
                         height: MediaQuery.of(context).size.height * 0.4,
                         child: ColorFiltered(
-                          colorFilter: ColorFilter.mode(
+                          colorFilter: const ColorFilter.mode(
                               Color(0xFF64B6B6), BlendMode.srcATop),
                           child: LottieBuilder.asset(
                             'assets/json/take_picture.json',
@@ -209,7 +209,7 @@ class _PosterPageState extends State<PosterPage> {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  widget.player.toUpperCase(),
+                  widget.player!.toUpperCase(),
                   style: GoogleFonts.cairo(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -220,23 +220,23 @@ class _PosterPageState extends State<PosterPage> {
             ),
             //PTS
             widget.points == 0
-                ? SizedBox()
-                : statsBadges(widget.points.toString() ?? "0", 'PTS'),
+                ? const SizedBox()
+                : statsBadges(widget.points.toString(), 'PTS'),
             widget.rebound == 0
-                ? SizedBox()
-                : statsBadges(widget.rebound.toString() ?? "0", 'REB'),
+                ? const SizedBox()
+                : statsBadges(widget.rebound.toString(), 'REB'),
             widget.assist == 0
-                ? SizedBox()
-                : statsBadges(widget.assist.toString() ?? "0", 'AST'),
+                ? const SizedBox()
+                : statsBadges(widget.assist.toString(), 'AST'),
             widget.steal == 0
-                ? SizedBox()
-                : statsBadges(widget.steal.toString() ?? '0', 'STL'),
+                ? const SizedBox()
+                : statsBadges(widget.steal.toString(), 'STL'),
             widget.block == 0
-                ? SizedBox()
-                : statsBadges(widget.block.toString() ?? '0', 'BLK'),
+                ? const SizedBox()
+                : statsBadges(widget.block.toString(), 'BLK'),
             widget.threepoints == 0
-                ? SizedBox()
-                : statsBadges(widget.threepoints.toString() ?? '0', '3PM'),
+                ? const SizedBox()
+                : statsBadges(widget.threepoints.toString(), '3PM'),
           ],
         ),
         Positioned(
@@ -246,7 +246,7 @@ class _PosterPageState extends State<PosterPage> {
             height: 100,
             color: Colors.white.withOpacity(0.3),
             // colorBlendMode: BlendMode.softLight,
-            image: AssetImage('assets/images/poster_logo.png'),
+            image: const AssetImage('assets/images/poster_logo.png'),
           ),
         ),
       ],
@@ -260,8 +260,7 @@ class _PosterPageState extends State<PosterPage> {
           flex: 1,
           child: ElevatedButton(
             onPressed: () async {
-              final source = await showImageSource(context);
-              if (source == null) return;
+              return await showImageSource(context);
             },
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.resolveWith((states) {
@@ -359,7 +358,7 @@ class _PosterPageState extends State<PosterPage> {
         ),
       ),
       badgeColor: ColorsConsts.white,
-      position: BadgePosition(
+      position: const BadgePosition(
         end: -16,
       ),
       shape: BadgeShape.square,
